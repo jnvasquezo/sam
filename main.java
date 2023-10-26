@@ -1,6 +1,6 @@
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
@@ -82,11 +82,12 @@ public class Main {
         obtenerFactoresClimaticos(ubicacion);
         String mejorPlanta = obtenerMejorPlanta(ubicacion, kb);
 
-    if (mejorPlanta.equals("Opción no válida")) {
-        System.out.println("Opción no válida. Debes elegir 1 o 2.");
-    } else {
-        System.out.println("Has elegido plantar: " + mejorPlanta);
-    }
+        if (mejorPlanta.equals("Opción no válida")) {
+            System.out.println("Opción no válida. Debes elegir 1 o 2.");
+        } else {
+            System.out.println("Has elegido plantar: " + mejorPlanta);
+            determinarCuidadoPlanta(mejorPlanta);
+        }
     }
 
     // Función para recibir datos de un usuario existente
@@ -165,31 +166,31 @@ public class Main {
         plantas.add("Pino");
         plantas.add("Bambú");
         plantas.add("Plátano");
-    
+
         // Muestra todas las plantas disponibles
         System.out.println("Plantas recomendadas para " + ubicacion + ":");
-    
+
         for (String planta : plantas) {
             System.out.println(" - " + planta);
         }
-    
+
         // Selección aleatoria de las 2 mejores plantas
         Random rand = new Random();
         int numPlantasSeleccionadas = 2;
         System.out.println("Las 2 mejores plantas para " + ubicacion + ":");
-    
+
         for (int i = 0; i < numPlantasSeleccionadas; i++) {
             int indiceAleatorio = rand.nextInt(plantas.size());
             String plantaSeleccionada = plantas.get(indiceAleatorio);
             System.out.println(" - " + plantaSeleccionada);
             plantas.remove(indiceAleatorio); // Evita que se seleccione la misma planta más de una vez
         }
-    
+
         // Permite al usuario elegir una de las dos mejores plantas
         System.out.println("Elige una de las dos mejores plantas (1 o 2): ");
         int eleccion = kb.nextInt();
         kb.nextLine(); // Limpia el búfer del teclado
-    
+
         if (eleccion == 1 || eleccion == 2) {
             return eleccion == 1 ? plantas.get(0) : plantas.get(1);
         } else {
@@ -199,15 +200,15 @@ public class Main {
 
     public static void determinarCuidadoPlanta(String plantaElegida) {
         Random rand = new Random();
-    
+
         // Determina aleatoriamente la complejidad (fácil, medio, difícil)
         String[] complejidad = {"fácil", "medio", "difícil"};
         int indiceComplejidad = rand.nextInt(complejidad.length);
         String nivelComplejidad = complejidad[indiceComplejidad];
-    
+
         // Determina aleatoriamente el tiempo de cuidado en minutos (entre 10 y 60 minutos)
         int tiempoCuidado = rand.nextInt(51) + 10;
-    
+
         System.out.println("Para cuidar tu planta de " + plantaElegida + ":");
         System.out.println("Complejidad: " + nivelComplejidad);
         System.out.println("Tiempo de cuidado diario: " + tiempoCuidado + " minutos");
