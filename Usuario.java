@@ -1,6 +1,7 @@
 public class Usuario{
 
-
+  private String titulo;
+  
   private boolean mascota;
 
   private boolean alergia;
@@ -9,6 +10,9 @@ public class Usuario{
 
   private String epoca;
 
+  public String getTitulo() {
+    return this.titulo;
+  }
   
   public boolean getMascota() {
     return this.mascota;
@@ -25,6 +29,9 @@ public class Usuario{
     return this.epoca;
   }
 
+  public void setTitulo(String titulo) {
+    this.titulo = titulo;
+  }
 
   public void setAlergia(boolean alergia){
     this.alergia = alergia;
