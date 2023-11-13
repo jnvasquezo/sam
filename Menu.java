@@ -8,18 +8,39 @@ public class Menu {
   private Usuario usuario = new Usuario();
   
   public Menu() {
-    pregunta();
+    titulo();
   }
-
- 
-    // JLabel label = new JLabel();
-    // ImageIcon icono = new ImageIcon("logo.jpg");
-    // Image imagen = icono.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
-    // icono = new ImageIcon(imagen);
-    // label.setIcon(icono);
-    
-
   
+  public void titulo() {
+    JFrame pantalla = new JFrame("SAM");
+    pantalla.setSize(500,300);
+    pantalla.setVisible(true);
+    JPanel panel = new JPanel();
+    JPanel panel2 = new JPanel(); 
+
+    JLabel pregunta = new JLabel("BIENVENIDO A SAM");
+    JButton bt1 = new JButton("INICIAR");
+
+    panel.add(pregunta);
+    panel2.add(bt1);
+
+    pantalla.setLayout(new BorderLayout());
+
+    pantalla.add(panel, BorderLayout.NORTH);
+    pantalla.add(panel2, BorderLayout.CENTER);
+
+    bt1.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        usuario.setTitulo("INICIAR");
+        pregunta();
+
+      }
+
+    });
+  }
+  
+    
   public void pregunta() {
     JFrame pantalla = new JFrame("SAM");
     pantalla.setSize(500,300);
@@ -96,6 +117,7 @@ public class Menu {
     });
   }
 
+  
   public void pregunta3() {
     JFrame pantalla = new JFrame("SAM");
     pantalla.setSize(500,300);
