@@ -17,11 +17,20 @@ public class Menu {
     pantalla.setVisible(true);
     JPanel panel = new JPanel();
     JPanel panel2 = new JPanel(); 
+    
+    //Agregar una imagen.
+    JLabel imagenLabel = new JLabel();
+   
+    ImageIcon icono = new ImageIcon("logo.jpg");
+    Image imagen = icono.getImage().getScaledInstance(250, 200, Image.SCALE_SMOOTH);
+    icono = new ImageIcon(imagen);
+    imagenLabel.setIcon(icono);
 
     JLabel pregunta = new JLabel("BIENVENIDO A SAM");
     JButton bt1 = new JButton("INICIAR");
-
-    panel.add(pregunta);
+    
+    panel.add(imagenLabel);
+    panel2.add(pregunta);
     panel2.add(bt1);
 
     pantalla.setLayout(new BorderLayout());
